@@ -1,0 +1,39 @@
+version: '3'
+services:
+
+  launchpad:
+    image: node
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/service
+    working_dir: /usr/src/service
+    command: yarn start:dev
+
+  db:
+    image: postgres
+    restart: always
+    logging:
+      driver: "none"
+    environment:
+      POSTGRES_PASSWORD: test1234
+      POSTGRES_USER: admin
+      POSTGRES_DB: launchpad
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    logging:
+      driver: "none"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: test@test.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - 5050:80
+
+volumes:
+  my-datavolume:

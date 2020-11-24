@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+  "host": "db",
+  "port": 5432,
+  "username": "admin",
+  "password": "test1234",
+  "database": "launchpad",
+  "synchronize": false,
+  "logging": false,
+  "entities": [
+    "dist/models/**/*.js"
+  ],
+  "seeds": [
+  ],
+  "factories": [
+  ],
+  "migrations": [],
+  "subscribers": []
+}

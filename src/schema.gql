@@ -1,0 +1,28 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CreateUserPayload {
+  userId: String!
+  roles: [String!]!
+}
+
+type LoginPayload {
+  accessToken: String!
+}
+
+type Query {
+  hello: String!
+  roles: [String!]!
+}
+
+type Mutation {
+  login(data: CreateUserInput!): LoginPayload!
+  createUser(data: CreateUserInput!): CreateUserPayload!
+}
+
+input CreateUserInput {
+  email: String!
+  password: String!
+  roles: [String!]
+}
